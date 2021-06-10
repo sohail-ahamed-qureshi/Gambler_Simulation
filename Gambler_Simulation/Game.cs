@@ -7,20 +7,20 @@ namespace Gambler_Simulation
     class Game
     {
         //constants
-       public const int STAKE = 100;
-       public const int BET = 1;
+        public const int STAKE = 100;
+        public const int BET = 1;
         public void Gambler(int target)
         {
             const int WIN = 0;
             const int LOSE = 1;
-             int loseTarget = STAKE - target;
-             int winTarget = STAKE + target;
+            int loseTarget = STAKE - target;
+            int winTarget = STAKE + target;
             int gamblerStake = STAKE;
             Random random = new Random();
             int game;
-            while ( gamblerStake <= winTarget || gamblerStake == loseTarget)
+            while (gamblerStake <= winTarget || gamblerStake == loseTarget)
             {
-                 game = random.Next(0, 2);
+                game = random.Next(0, 2);
                 if (game == WIN)
                 {
                     gamblerStake += BET;
@@ -31,8 +31,8 @@ namespace Gambler_Simulation
                     gamblerStake -= BET;
                     Console.WriteLine("gambler lose!");
                 }
-                Console.WriteLine(gamblerStake);
-            } 
+                Console.WriteLine($"money left with gambler: {gamblerStake}");
+            }
         }
     }
 }
