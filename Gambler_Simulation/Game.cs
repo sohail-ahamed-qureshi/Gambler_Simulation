@@ -6,21 +6,33 @@ namespace Gambler_Simulation
 {
     class Game
     {
-        public void Gambler()
+        //constants
+       public const int STAKE = 100;
+       public const int BET = 1;
+        public void Gambler(int target)
         {
             const int WIN = 0;
             const int LOSE = 1;
+             int loseTarget = STAKE - target;
+             int winTarget = STAKE + target;
+            int gamblerStake = STAKE;
             Random random = new Random();
-            int game = random.Next(0, 2);
-            if (game == WIN)
+            int game;
+            while ( gamblerStake <= winTarget || gamblerStake == loseTarget)
             {
-                Console.WriteLine("gambler wins!");
-            }
-            if (game == LOSE)
-            {
-                Console.WriteLine("gambler lose!");
-            }
-
+                 game = random.Next(0, 2);
+                if (game == WIN)
+                {
+                    gamblerStake += BET;
+                    Console.WriteLine("gambler wins!");
+                }
+                if (game == LOSE)
+                {
+                    gamblerStake -= BET;
+                    Console.WriteLine("gambler lose!");
+                }
+                Console.WriteLine(gamblerStake);
+            } 
         }
     }
 }
