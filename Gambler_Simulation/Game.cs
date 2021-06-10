@@ -13,8 +13,8 @@ namespace Gambler_Simulation
         {
             const int WIN = 0;
             const int LOSE = 1;
-            int loseTarget = STAKE - target;
-            int winTarget = STAKE + target;
+            int loseTarget = ((STAKE / 100) * target) - STAKE;
+            int winTarget = ((STAKE / 100) * target) + STAKE;
             int gamblerStake = STAKE;
             Random random = new Random();
             int game;
